@@ -7,8 +7,9 @@ import auth, { provider } from './firebase'
 function Login(props) {
 
 
-    const [issignedin,setIssignedin]   = useContext(UserSignin)
-console.log(issignedin);
+    // const [issignedin,setIssignedin]   = useContext(UserSignin)
+    const [userinfo,setUserinfo] = useContext(UserSignin)
+// console.log(issignedin);
 let history = useHistory();
 let location = useLocation();
 
@@ -17,8 +18,12 @@ let { from } = location.state || { from: { pathname: "/" } }
 const registeruser =() => {
     auth.signInWithPopup(provider)
     .then(res => {
-        console.log(res)
-        setIssignedin(true)
+      
+        // setIssignedin(true)
+      
+        userinfo.name = res.user.displayName
+        userinfo.email = res.user.email
+        userinfo.issignedin = true
         history.replace(from)
     })
     .catch(err => alert(err))

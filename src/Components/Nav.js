@@ -18,7 +18,7 @@ function Nav() {
         <a class="nav-link" href="/">Donation</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/">Evants</a>
+        <a class="nav-link" href="/events">Evants</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/">Blog</a>

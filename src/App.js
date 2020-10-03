@@ -8,15 +8,21 @@ import Login from './Components/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './Components/PrivateRoute';
+import Events from './Components/Events';
 
 
 
 export const UserSignin = createContext()
 
 function App() {
-  const [issignedin,setIssignedin] = useState()
+  // const [issignedin,setIssignedin] = useState()
+  const [userinfo,setUserinfo] = useState({
+    name: '',
+    email:'',
+    issignedin: false
+  })
   return (
-    <UserSignin.Provider value={[issignedin,setIssignedin] }>
+    <UserSignin.Provider value={[userinfo,setUserinfo]}>
  <Router>
   <Nav/>
   <Switch>
@@ -30,6 +36,9 @@ function App() {
 
 <Route exact path='/login'>
 <Login  />
+</Route>
+<Route exact path='/events' >
+  <Events/>
 </Route>
   </Switch>
  

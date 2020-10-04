@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import fdata from './VolunteerSectiondata';
 import './Register.css'
 import { useContext } from 'react';
@@ -15,11 +15,11 @@ const [userinfo,setUserinfo] = useContext(UserSignin)
 
     const onSubmit = data =>{
         const name =userinfo.name
-        const email = data.email
+        const email = userinfo.email
         const date =data.date
         const description = data.description
-        const activityValue = filtervalue.name
-
+        const activityname = filtervalue.name
+        const activityimg= filtervalue.img
 
 
         if(isNaN(name)){
@@ -29,7 +29,7 @@ const [userinfo,setUserinfo] = useContext(UserSignin)
 
 
 
-        const values = {name,email,date,description,activityValue}
+        const values = {name,email,date,description,activityname,activityimg}
         fetch("http://localhost:5000/addregistrations",{
             method:"POST",
             headers:{"Content-Type":'application/json'},
@@ -73,6 +73,7 @@ history.replace('/events')
           </div>
       
       <input type="submit" className="btn btn-primary btn-large" />
+    
     </form>
         </div>
     )

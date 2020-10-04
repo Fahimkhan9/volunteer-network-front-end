@@ -21,6 +21,8 @@ function App() {
     email:'',
     issignedin: false
   })
+
+  
   return (
     <UserSignin.Provider value={[userinfo,setUserinfo]}>
  <Router>
@@ -37,9 +39,9 @@ function App() {
 <Route exact path='/login'>
 <Login  />
 </Route>
-<Route exact path='/events' >
+<PrivateRoute exact path='/events' >
   <Events/>
-</Route>
+</PrivateRoute>
   </Switch>
  
   </Router>

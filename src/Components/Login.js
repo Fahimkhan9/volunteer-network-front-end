@@ -31,10 +31,12 @@ const registeruser =() => {
 
     return (
     
-            <div class="card">
-                <div className="card-title">Login</div>
-  <div class="card-body">
-    <button className="btn" onClick={registeruser}> Continue With Google </button>
+            <div class="card mt-5 mx-auto" style={{width:"25rem"}}>
+                <div className="card-title  mx-auto">
+                    <h2>Login to Register</h2>
+                </div>
+  <div class="card-body mx-auto">
+    <button className="btn btn-primary" onClick={registeruser}> Continue With Google </button>
   </div>
 </div>
         

@@ -1,35 +1,44 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
-import fdata from './VolunteerSectiondata';
+
 import './Register.css'
 import { useContext } from 'react';
 import { UserSignin } from '../App';
+import { useEffect } from 'react';
+import { useState } from 'react';
 function Register() {
-    const {id} = useParams()
+    const {activityid} = useParams()
     const { register, handleSubmit, watch, errors } = useForm();
     const location = useLocation()
     const history = useHistory()
-    const filtervalue = fdata.find(data => parseInt(data.id)  === parseInt(id))
+    const [filtereddata,setFilteredData] = useState([])
+   useEffect(()=> {
+fetch(`http://localhost:5000/getfilteredevents/${activityid}`)
+.then(res  => res.json())
+.then(data  => setFilteredData(data))
+   },[activityid])
+console.log(filtereddata);
+const {name,img} = filtereddata
+console.log(name,img);
 const [userinfo,setUserinfo] = useContext(UserSignin)
 
     const onSubmit = data =>{
-        const name =userinfo.name
-        const email = userinfo.email
+        const username =userinfo.name
+        const useremail = userinfo.email
         const date =data.date
         const description = data.description
-        const activityname = filtervalue.name
-        const activityimg= filtervalue.img
+        const registeractivityname = name
+        const registeractivityimg= img
+        const registeractivityid = activityid
 
 
-        if(isNaN(name)){
-            console.log(name);
-        }
+        
     
 
 
 
-        const values = {name,email,date,description,activityname,activityimg}
+        const values = {username,useremail,date,description,registeractivityname,registeractivityimg,registeractivityid}
         fetch("http://localhost:5000/addregistrations",{
             method:"POST",
             headers:{"Content-Type":'application/json'},
@@ -68,7 +77,7 @@ history.replace('/events')
           {errors.description && <span>Description is required</span>}
           </div>
           <div className="form-group">
-          <input type="text" name="activity" className="form-control" value={filtervalue.name} disabled ref={register}/>
+          <input type="text" name="activity" className="form-control" value={name} disabled ref={register}/>
         
           </div>
       

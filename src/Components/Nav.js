@@ -1,10 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 function Nav() {
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand ml-4" href="#">Navbar</a>
+  <NavLink class="navbar-brand ml-4" to="/">
+    <img style={{width:"80px"}} src="https://github.com/ProgrammingHero1/volunteer-network/raw/main/logos/Group%201329.png" alt=""/>
+  </NavLink>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,23 +15,17 @@ function Nav() {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <NavLink class="nav-link" to="/">Home <span class="sr-only">(current)</span></NavLink>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="/">Donation</a>
+        <NavLink class="nav-link" to="/events">Evants</NavLink>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="/events">Evants</a>
+        <NavLink class="nav-link  btn btn-primary text-white" to="/login">Login</NavLink>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Blog</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link btn btn-primary text-white " href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link btn btn-dark text-white ml-3" href="/">Admin</a>
-      </li>
+      
       
     </ul>
     

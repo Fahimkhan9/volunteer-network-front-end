@@ -9,11 +9,14 @@ import Nav from './Nav'
 function Events() {
     const [events,setEvents] = useState([])
     const [userinfo,setUserinfo] = useContext(UserSignin)
- useEffect(() =>{
-     fetch(`http://localhost:5000/getevents?email=${userinfo.email}`)
-     .then(res => res.json())
-     .then(data => setEvents(data))
- },[])
+
+
+useEffect(() => {
+    fetch(`http://localhost:5000/getfilteredevents?email=${userinfo.email}`)
+    .then(res => res.json())
+    .then(data => setEvents(data))
+},[])
+
 
 
 console.log(events);
@@ -21,7 +24,7 @@ console.log(events);
     return (
         <div>
             {
-                events.map(data => <EventsCard activityimg={data.activityimg} activtiyname={data.activityname} date={data.date}  /> )
+                events.map(data => <EventsCard registeractivityimg={data.registeractivityimg} registeractivtiyname={data.registeractivityname} date={data.date}  /> )
             }
     
 

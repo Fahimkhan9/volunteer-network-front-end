@@ -32,7 +32,7 @@ function App() {
 <SearchSection/>
   <VolunteerSection/>
 </Route>
-<PrivateRoute exact path='/register/:id'>
+<PrivateRoute exact path='/register/:activityid'>
 <Register/>
 </PrivateRoute>
 

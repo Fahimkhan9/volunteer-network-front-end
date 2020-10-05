@@ -19,7 +19,7 @@ function Nav() {
       </li>
       
       <li className="nav-item">
-        <NavLink className="nav-link" to="/events">Evants</NavLink>
+        <NavLink className="nav-link" to="/events">Events</NavLink>
       </li>
       
       <li className="nav-item">

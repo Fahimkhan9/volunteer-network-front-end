@@ -1,22 +1,23 @@
 import React from 'react'
 
+
 function EventsCard(props) {
 
-  const cancelevents = () => {
 
-  }
     return (
-        <div>
-  <div class="card mb-3" style={{maxWidth:"540px"}}>
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src={props.registeractivityimg} class="card-img" alt="..."/>
+        <div >
+  <div className="card mb-3" style={{maxWidth:"540px"}}>
+  <div className="row no-gutters">
+    <div className="col-md-4">
+      <img src={props.registeractivityimg} className="card-img" alt="..."/>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-    <h5 class="card-title">{props.registeractivtiyname}</h5>
-    <p class="card-text">{props.date}</p>
-        <p class="card-text"><button className="btn btn-danger" onClick={cancelevents}>Cancel</button></p>
+    <div className="col-md-8">
+      <div className="card-body">
+    <h5 className="card-title">{props.registeractivtiyname}</h5>
+    <p className="card-text">{props.date}</p>
+      
+        <p className="card-text"><button className="btn btn-danger" onClick={() => props.cancelevents(props.registeractivityid)}>Cancel</button></p>
+    
       </div>
     </div>
   </div>

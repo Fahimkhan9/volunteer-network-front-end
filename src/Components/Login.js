@@ -7,9 +7,8 @@ import auth, { provider } from './firebase'
 function Login(props) {
 
 
-    // const [issignedin,setIssignedin]   = useContext(UserSignin)
     const [userinfo,setUserinfo] = useContext(UserSignin)
-// console.log(issignedin);
+
 let history = useHistory();
 let location = useLocation();
 
@@ -26,16 +25,16 @@ const registeruser =() => {
         userinfo.issignedin = true
         history.replace(from)
     })
-    .catch(err => alert(err))
+    .catch(err => alert("error occured in firebase login :" + err))
 }
 
     return (
     
-            <div class="card mt-5 mx-auto" style={{width:"25rem"}}>
+            <div className="card mt-5 mx-auto" style={{width:"25rem"}}>
                 <div className="card-title  mx-auto">
                     <h2>Login to Register</h2>
                 </div>
-  <div class="card-body mx-auto">
+  <div className="card-body mx-auto">
     <button className="btn btn-primary" onClick={registeruser}> Continue With Google </button>
   </div>
 </div>

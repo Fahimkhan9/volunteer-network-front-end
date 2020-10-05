@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
+import {  useHistory, useLocation, useParams } from 'react-router-dom';
 
 import './Register.css'
 import { useContext } from 'react';
@@ -9,18 +9,18 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 function Register() {
     const {activityid} = useParams()
-    const { register, handleSubmit, watch, errors } = useForm();
-    const location = useLocation()
+    const { register, handleSubmit,  errors } = useForm();
+    
     const history = useHistory()
     const [filtereddata,setFilteredData] = useState([])
    useEffect(()=> {
-fetch(`http://localhost:5000/getfilteredevents/${activityid}`)
+fetch(`https://warm-inlet-36031.herokuapp.com/getfilteredevents/${activityid}`)
 .then(res  => res.json())
 .then(data  => setFilteredData(data))
    },[activityid])
-console.log(filtereddata);
+
 const {name,img} = filtereddata
-console.log(name,img);
+
 const [userinfo,setUserinfo] = useContext(UserSignin)
 
     const onSubmit = data =>{
@@ -39,15 +39,14 @@ const [userinfo,setUserinfo] = useContext(UserSignin)
 
 
         const values = {username,useremail,date,description,registeractivityname,registeractivityimg,registeractivityid}
-        fetch("http://localhost:5000/addregistrations",{
+        fetch("https://warm-inlet-36031.herokuapp.com/addregistrations",{
             method:"POST",
             headers:{"Content-Type":'application/json'},
             body: JSON.stringify(values)
         })
         .then(res => res.json())
         .then(d => console.log(d))
-console.log(location);
-console.log(history);
+
 history.replace('/events')
     };
   
@@ -55,9 +54,9 @@ history.replace('/events')
     return (
         <div className="register">
             <img src="https://github.com/ProgrammingHero1/volunteer-network/raw/main/logos/Group%201329.png" alt="" className="register-img" />
-              {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+              
     <form  onSubmit={handleSubmit(onSubmit)} className="register-form">
-    {/* register your input into the hook by invoking the "register" function */}
+    
      
       <div className="form-group">
           <h1 className="display-6">Register as a volunteer</h1>

@@ -55,11 +55,11 @@ history.replace('/events')
         <div className="register">
             <img src="https://github.com/ProgrammingHero1/volunteer-network/raw/main/logos/Group%201329.png" alt="" className="register-img" />
               
-    <form  onSubmit={handleSubmit(onSubmit)} className="register-form">
+    <form  onSubmit={handleSubmit(onSubmit)} className="register-form p-5">
     
      
       <div className="form-group">
-          <h1 className="display-6">Register as a volunteer</h1>
+          <h1 className="display-6 text-center text-brand">Register as a volunteer</h1>
           <input type="text" name="name" value={userinfo.name} className="form-control" placeholder="Full Name" disabled ref={register}/>
         
           </div>
@@ -80,7 +80,7 @@ history.replace('/events')
         
           </div>
       
-      <input type="submit" className="btn btn-primary btn-large" />
+      <input type="submit" className="btn btn-primary btn-large btn-block" />
     
     </form>
         </div>

@@ -15,7 +15,7 @@ import Events from './Components/Events';
 export const UserSignin = createContext()
 
 function App() {
-  // const [issignedin,setIssignedin] = useState()
+  const [allactivitydata,setAllactivitydata] = useState([])
   const [userinfo,setUserinfo] = useState({
     name: '',
     email:'',
@@ -29,8 +29,8 @@ function App() {
   <Nav/>
   <Switch>
 <Route exact path="/">
-<SearchSection/>
-  <VolunteerSection/>
+<SearchSection allactivitydata={allactivitydata} setAllactivitydata={setAllactivitydata} />
+  <VolunteerSection allactivitydata={allactivitydata} setAllactivitydata={setAllactivitydata}/>
 </Route>
 <PrivateRoute exact path='/register/:activityid'>
 <Register/>

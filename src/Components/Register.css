@@ -1,16 +1,20 @@
 .register{
     margin: 0px auto;
-    width:40%;
+    /* width:40%; */
 }
 .register-img{
     height: 80px;
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 5px;
+padding: 10px;
+margin: 0px auto;
+
 }
 .register-form{
     padding: 10px;
     border: none;
 box-shadow: 3px 5px 7px 5px lightgray;
+width: 40%;
+margin: 0px auto;
 }

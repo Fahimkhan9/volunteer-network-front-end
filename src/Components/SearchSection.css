@@ -1,8 +1,8 @@
 .form-search{
-    display: flex;
-    align-items: center;
-    width: 30%;
-    margin: 0px auto;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin: 0px auto;
 }
 
 .input-search{
@@ -11,4 +11,12 @@
 }
 .btn-search{
   
+}
+@media (max-width:600px){
+  .form-search{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+}
 }

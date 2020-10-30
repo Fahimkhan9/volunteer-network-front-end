@@ -7,8 +7,8 @@ import VolunteerSectionCard from './VolunteerSectionCard'
 
 
 
-function VolunteerSection() {
-    const [allactivitydata,setAllactivitydata] = useState([])
+function VolunteerSection({setAllactivitydata,allactivitydata}) {
+
 
 useEffect(() => {
 
@@ -25,8 +25,11 @@ useEffect(() => {
 console.log(allactivitydata);
 
     return (
-        <div className="mt-5" style={{display:"grid",gridTemplateColumns:"auto auto auto"}}>
+        <div className="mt-5" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr"}}>
             {
+                allactivitydata.length === 0 ?
+                <h2 className="text-center">Loading.Please wait...</h2>
+                :
                 allactivitydata.map(data => <VolunteerSectionCard key={data.id} name={data.name} img={data.img} id={data.id} />)
             }
         </div>

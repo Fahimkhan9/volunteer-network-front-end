@@ -1,7 +1,11 @@
 import React from 'react'
+import { useEffect } from 'react'
 import '../../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css'
 import './SearchSection.css'
-function SearchSection() {
+function SearchSection({allactivitydata,setAllactivitydata}) {
+    useEffect(() => {
+
+    },[])
     return (
         <div>
             <h1 className="text-center text-uppercase display-4">I grow by helping people</h1>

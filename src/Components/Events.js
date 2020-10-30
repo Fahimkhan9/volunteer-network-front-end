@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useContext } from 'react';
-
 import { useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import { UserSignin } from '../App';
 import EventsCard from './EventsCard';
 
@@ -39,13 +39,24 @@ const cancelevents =(registeractivityid) =>{
 
 
     return (
-        <div style={{display:'grid',gridTemplateColumns:"auto auto auto"}}>
+        <div className="container">
+             <h2 className="text-center tect-brand p-5">Your's activities</h2>
+             <div style={{display:'grid',gridTemplateColumns:"1fr 1fr 1fr"}}>
+           
             {
+                events.length ===0 ?
+    <div className="text-center text-dark ">
+                <p >you have no activities</p>
+            <Link to="/" ><p className="text-decoration-none">Register for a volunteer activity here</p></Link>
+    </div>
+                :
                 events.map(data => <EventsCard key={data._id} registeractivityimg={data.registeractivityimg} registeractivtiyname={data.registeractivityname} date={data.date} registeractivityid={data.registeractivityid} cancelevents={cancelevents}   events={events}  /> )
             }
     
 
         </div>
+        </div>
+        
     )
 }
 

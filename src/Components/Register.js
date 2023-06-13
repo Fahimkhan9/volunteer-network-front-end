@@ -14,7 +14,7 @@ function Register() {
     const history = useHistory()
     const [filtereddata,setFilteredData] = useState([])
    useEffect(()=> {
-fetch(`https://warm-inlet-36031.herokuapp.com/getfilteredevents/${activityid}`)
+fetch(`https://volunteernetwork-backend.onrender.com/getfilteredevents/${activityid}`)
 .then(res  => res.json())
 .then(data  => setFilteredData(data))
    },[activityid])
@@ -39,7 +39,7 @@ const [userinfo,setUserinfo] = useContext(UserSignin)
 
 
         const values = {username,useremail,date,description,registeractivityname,registeractivityimg,registeractivityid}
-        fetch("https://warm-inlet-36031.herokuapp.com/addregistrations",{
+        fetch("https://volunteernetwork-backend.onrender.com/addregistrations",{
             method:"POST",
             headers:{"Content-Type":'application/json'},
             body: JSON.stringify(values)

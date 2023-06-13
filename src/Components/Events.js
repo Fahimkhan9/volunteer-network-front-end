@@ -10,11 +10,11 @@ function Events() {
     const [events,setEvents] = useState([])
     const [userinfo,setUserinfo] = useContext(UserSignin)
    
- 
+    
 
 
 useEffect(() => {
-    fetch(`https://warm-inlet-36031.herokuapp.com/getfilteredevents?email=${userinfo.email}`)
+    fetch(`https://volunteernetwork-backend.onrender.com/getfilteredevents?email=${userinfo.email}`)
     .then(res => res.json())
     .then(data => setEvents(data))
 },[events])
@@ -25,7 +25,7 @@ console.log(events);
 const cancelevents =(registeractivityid) =>{
    
 
-    fetch(`https://warm-inlet-36031.herokuapp.com/deleteevents/${registeractivityid}`,{
+    fetch(`https://volunteernetwork-backend.onrender.com/deleteevents/${registeractivityid}`,{
         method:"DELETE",
         headers:{"Content-Type":'application/json'}
     })

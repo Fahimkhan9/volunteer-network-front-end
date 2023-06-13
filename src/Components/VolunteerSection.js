@@ -13,7 +13,7 @@ function VolunteerSection({setAllactivitydata,allactivitydata}) {
 useEffect(() => {
 
 
-    fetch("https://warm-inlet-36031.herokuapp.com/activitydata")
+    fetch("https://volunteernetwork-backend.onrender.com/activitydata")
     .then(res => res.json())
     .then(data => setAllactivitydata(data))
 
